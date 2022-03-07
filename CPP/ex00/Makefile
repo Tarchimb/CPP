@@ -1,0 +1,33 @@
+SRCS		=	megaphone.cpp			\
+				
+OBJS		=	${SRCS:.cpp=.o}
+
+INCLUDES	=	./includes/philo.h		\
+
+CC			= 	c++
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+
+
+EXEC		=	megaphone
+
+RM			=	rm -rf	
+
+MKDIR		=	mkdir -p
+
+all:		${EXEC}
+
+%.o: 		%.c
+			${CC} ${CFLAGS} -c $< -o $@
+
+${EXEC}:	${EXEC}.cpp ${LIB}
+			$(CC) ${CFLAGS} ${EXEC}.cpp -o ${EXEC}  
+
+clean:
+			${RM} ${OBJS}
+
+fclean:		clean
+			${RM}${EXEC} ${EXEC}.dSYM
+
+re:			fclean all
+
+.PHONY: 	all clean fclean re libft object
