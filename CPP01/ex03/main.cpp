@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:12:23 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 16:31:34 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/19 11:58:14 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/19 14:37:56 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-class	Contact {
-	
-public:
-	Contact(int a, char b, std::string c);
-	~Contact(void);
-
-	int		d;
-	char	e;
-	std::string	f;
-};
-
-#endif
+int main()
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
+}

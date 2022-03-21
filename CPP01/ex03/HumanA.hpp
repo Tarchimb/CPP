@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:12:25 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 14:48:54 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/19 11:49:15 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/19 12:18:25 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMAN_A_HPP
+#define HUMAN_A_HPP
 
-#include <iostream>
-#include "PhoneBook.class.hpp"
+#include "Weapon.hpp"
 
-PhoneBook::PhoneBook(void) {
-	std::cout << "Constructor Called -->PhoneBook" << std::endl;
-	return;
-}
+class HumanA
+{
+private:
+	std::string	_name;
+	Weapon		&_Weapon;
+		
+public:
+	HumanA(std::string name, Weapon &weapon);
+	~HumanA();
+	void	attack(void) const;
+};
 
-
-PhoneBook::~PhoneBook(void) {
-	std::cout << "Destructor Called -->PhoneBook" << std::endl;
-	return;
-}
+#endif

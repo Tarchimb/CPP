@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:07:01 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 14:08:14 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/21 15:27:29 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/21 15:38:36 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
-void	print_c(char c)
+int	main(void)
 {
-	if (isalpha(c) != 0)
-	{
-		c = toupper(c);
-		std::cout << c;
-	}
-	else
-		std::cout << c;
-}
+	Harl	test;
 
-int	main(int argc, char **argv)
-{
-	int		i;
-	int		j;
-
-	if (argc <= 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-			print_c(argv[i][j]);
-		std::cout << " ";
-		j = 0;
-	}
+	test.complain("debug");
 	std::cout << std::endl;
+	test.complain("info");
+	std::cout << std::endl;
+	test.complain("warning");
+	std::cout << std::endl;
+	test.complain("error");
+	std::cout << std::endl;
+	test.complain("wrong command");
+	std::cout << std::endl;
+	return (0);
 }

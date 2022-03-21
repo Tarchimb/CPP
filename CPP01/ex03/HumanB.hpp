@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:12:27 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 14:32:54 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/19 11:56:10 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/19 13:58:45 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#ifndef HUMAN_B_HPP
+#define HUMAN_B_HPP
 
-class	PhoneBook {
-	
-public :
-	PhoneBook(void);
-	~PhoneBook(void);
+#include "Weapon.hpp"
+
+class HumanB
+{
+private:
+	std::string	_name;
+	Weapon		*_Weapon;
+		
+public:
+	HumanB(std::string name);
+	~HumanB();
+	void	attack(void) const;
+	void	setWeapon(Weapon &weapon);
 };
 
 #endif

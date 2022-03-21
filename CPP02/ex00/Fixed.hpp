@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:12:21 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 16:31:57 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/21 17:14:17 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/21 17:33:23 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
-#include <string>
-#include "Contact.class.hpp"
 
-Contact::Contact(int a, char b, std::string c) : d(a), e(b), f(c) {
-	std::cout << "Constructor Called -->Contact" << std::endl;
-	std::cout << "d--> " << this->d << std::endl;
-	std::cout << "e--> " << this->e << std::endl;
-	std::cout << "f--> " << this->f << std::endl;
-	return ;
-}
-
-Contact::~Contact() {
-	std::cout << "Destructor Called" << std::endl;
+class Fixed
+{
+private:
 	
-}
+public:
+	Fixed();
+	Fixed(Fixed const & src);
+	Fixed &	operator=(Fixed const & rhs);
+	~Fixed();
+};
+
+
+
+#endif

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:11:16 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/07 16:33:20 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/19 10:51:15 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/19 14:49:57 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <unistd.h>
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
+#include "Zombie.hpp"
 
-int main(int argc, char **argv)
+Zombie::Zombie(void)
 {
-	Contact		*test2;
-	(void)argc;
-	(void)argv;
-	
-	test2 = new Contact(42, 'c', "Theo");
-	test2->f
-	delete(test2);
-	usleep(1000000);
-	return (0);
+	std::cout << GREEN << "[Zombie]:\t Constructor called" << END << std::endl;
 }
+
+Zombie::~Zombie()
+{
+	std::cout << RED << "[Zombie]:\t Destructor called." << END << std::endl;
+}
+
+void	Zombie::set_name(std::string name)
+{
+	_name = name;
+}
+
+void	Zombie::announce(void) const
+{
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+

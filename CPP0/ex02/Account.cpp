@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 13:10:48 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/08 16:39:33 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/08 22:09:57 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	Account::getNbWithdrawals( void )
 void	Account::makeDeposit(int deposit)
 {
 	this->_totalAmount += deposit;
-	this->_totalNbDeposits += 1;
 	this->_amount += deposit;
+	this->_totalNbDeposits += 1;
 	this->_nbDeposits += 1;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	if (this->_totalAmount - withdrawal > 0)
+	if ((this->_totalAmount - withdrawal) < 0)
 	{
 		this->_totalAmount -= withdrawal;
 		this->_totalNbWithdrawals += 1;
@@ -57,7 +57,6 @@ bool	Account::makeWithdrawal(int withdrawal)
 int	Account::getNbAccounts( void )
 {
 	_nbAccounts += 1;
-	// _accountIndex = _nbAccounts;
 	return (_nbAccounts);	
 }
 
@@ -83,8 +82,11 @@ void	Account::displayAccountsInfos(void)
 
 	amount = getTotalAmount();
 	_displayTimestamp();
-	std::cout << "index:" << ";amount:" << amount << ";deposits:"
-		<< std::endl;
+	std::cout << "accounts:" << _nbAccounts << ";total:" << amount
+		<< ";deposits:" << _totalNbDeposits << ";withdrawal:"
+		<< _totalNbWithdrawals << std::endl;
+	_totalNbDeposits = 0;
+	_totalNbWithdrawals = 0;
 }
 
 void	Account::displayStatus(void) const
@@ -104,5 +106,8 @@ Account::Account(int initial_deposit)
 
 Account::~Account(void)
 {
-
+	_accountIndex = getNbAccounts() - 1;
+	_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex
+		<< ";amount:"  << ";closed" << std::endl;
 }
