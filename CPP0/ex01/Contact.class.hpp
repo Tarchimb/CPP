@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:12:23 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/08 11:21:37 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:57:43 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ public	:
 	~Contact(void);
 	
 	void	print_info(void) const;
+	
 	int			index;
 	std::string	first_name;
 	std::string	last_name;
