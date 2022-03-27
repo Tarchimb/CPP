@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/24 14:43:51 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/27 12:59:45 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@ Fixed::Fixed(Fixed const & src )
 	return ;
 }
 
-Fixed::Fixed(const int)
+Fixed::Fixed(const int val)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->_val = val << this->_bit;
 	return ;
 }
 
-Fixed::Fixed(const float)
+Fixed::Fixed(const float val)
 {
 	std::cout << "Float constructor called" << std::endl;
+	this->_val = (roundf(val * (1 << this->_bit)));
 	return ;
 }
 
@@ -52,12 +54,12 @@ void	Fixed::setRawBits(int const raw)
 
 float		Fixed::toFloat(void) const
 {
-		
+	return ((float)this->_val / (float)(1 << this->_bit));
 }
 
 int		Fixed::toInt(void) const
 {
-		
+	return (this->_val >> _bit);
 }
 
 Fixed &Fixed::operator=(Fixed const & rhs)
@@ -69,7 +71,7 @@ Fixed &Fixed::operator=(Fixed const & rhs)
 
 std::ostream	&operator<<(std::ostream &o, Fixed const & rhs)
 {
-	o << rhs.getRawBits();
+	o << rhs.toFloat();
 	return (o);
 }
 
