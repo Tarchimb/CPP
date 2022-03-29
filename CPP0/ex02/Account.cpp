@@ -114,17 +114,9 @@ int		Account::checkAmount( void ) const
 void	Account::displayAccountsInfos(void)
 {
 	_displayTimestamp();
-<<<<<<< HEAD
-	std::cout << "accounts:" << _nbAccounts << ";total:" << amount
-		<< ";deposits:" << _totalNbDeposits << ";withdrawal:"
-		<< _totalNbWithdrawals << std::endl;
-	_totalNbDeposits = 0;
-	_totalNbWithdrawals = 0;
-=======
 	std::cout << " accounts:" << _nbAccounts << ";total:" << _totalAmount
 		<< ";deposits:" << _totalNbDeposits << ";withdrawals:" 
 		<< _totalNbWithdrawals << std::endl;
->>>>>>> fa3bee9aad3e22b91e816852b0bd13e7712581d3
 }
 
 
