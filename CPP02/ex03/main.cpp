@@ -5,34 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:11:16 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/24 13:13:23 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/21 17:14:19 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/29 15:04:26 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+#include "Fixed.hpp"
+#include "Point.hpp"
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
-int main()
+int main(int argc, char **argv)
 {
-	PhoneBook	rep;
-	std::string	buffer;
-
-	std::cout << "This phonebook accept 3 commands : SEARCH, ADD, EXIT"
-		<< std::endl;
-	while (1)
-	{
-		std::cout << "-->";
-		if (!std::getline(std::cin, buffer))
-			break ;
-		if (buffer.compare("ADD") == 0)
-			rep.add_contact();
-		else if (buffer.compare("SEARCH") == 0)
-			rep.search_contact();
-		else if (buffer.compare("EXIT") == 0)
-			return (0);
-		else
-			std::cout << "Please enter a valid command" << std::endl;
-	}
+	(void)argc;
+	(void)argv;
+	Point	a(0, 0);
+	Point	b(0, 0);
+	Point	c(0, 0);
+	Point	point(1, 1);
+	if (bsp(a, b, c, point) == true)
+		std::cout << "OUT" << std::endl;
+	else
+		std::cout << "IN" << std::endl;
 	return (0);
 }
