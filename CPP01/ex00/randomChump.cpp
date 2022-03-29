@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 10:51:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/22 09:28:42 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/17 13:04:44 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/17 13:45:01 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
-{
-	std::cout << GREEN << "[Zombie]:\t Constructor called" << END << std::endl;
-}
+ void	randomChump(std::string name)
+ {
+	 Zombie	foo(name);
 
-Zombie::~Zombie()
-{
-	std::cout << RED << "[Zombie]:\t Destructor called" << END << std::endl;
-}
-
-void	Zombie::set_name(std::string name)
-{
-	_name = name;
-}
-
-void	Zombie::announce(void) const
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
+	 foo.announce();
+	 return ;
+ }
+ 

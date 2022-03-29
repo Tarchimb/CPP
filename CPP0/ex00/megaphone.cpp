@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 10:51:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/22 09:28:42 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/07 14:07:01 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/18 11:31:27 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie::Zombie(void)
+int	main(int argc, char **argv)
 {
-	std::cout << GREEN << "[Zombie]:\t Constructor called" << END << std::endl;
-}
+	int		i;
+	int		j;
 
-Zombie::~Zombie()
-{
-	std::cout << RED << "[Zombie]:\t Destructor called" << END << std::endl;
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			for (j = 0; argv[i][j]; j++)
+				std::cout << (char)toupper(argv[i][j]);
+			std::cout << " ";
+		}
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << std::endl;
+	return (0);
 }
-
-void	Zombie::set_name(std::string name)
-{
-	_name = name;
-}
-
-void	Zombie::announce(void) const
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-

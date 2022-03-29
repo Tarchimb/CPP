@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:12:23 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/09 15:57:43 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/07 14:12:27 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/23 09:55:49 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#include "Contact.hpp"
 
-class	Contact {
+#ifndef PHONEBOOK_CLASS_HPP
+# define PHONEBOOK_CLASS_HPP
+#include <unistd.h>
+
+class	PhoneBook {
 	
 public	:
-	Contact();
-	~Contact(void);
+	PhoneBook(void);
+	~PhoneBook(void);
 	
-	void	print_info(void) const;
+	void		search_contact(void);
+	void		add_contact(void);
 	
-	int			index;
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nick_name;
-	std::string	phone_number;
-	std::string	darkest_secret;
 private	:
+	int			_index;
+	int			get_index_from_stdin();
+	std::string	get_stdin();
+	void		print_contact(void) const;
+	void		syntax_print(std::string contact) const;
+	Contact		contact[8];
 };
 
 #endif

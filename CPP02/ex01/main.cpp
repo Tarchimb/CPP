@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:19 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/29 22:19:33 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/29 22:21:29 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 int main( void )
 {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( 0.00000001f );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	

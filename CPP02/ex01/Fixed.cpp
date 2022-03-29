@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/27 12:59:45 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:45:10 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Fixed::Fixed(Fixed const & src )
 	return ;
 }
 
+//Constructor converter int to fixed point
 Fixed::Fixed(const int val)
 {
 	std::cout << "Int constructor called" << std::endl;
@@ -34,6 +35,7 @@ Fixed::Fixed(const int val)
 	return ;
 }
 
+//Constructor converter float to fixed point
 Fixed::Fixed(const float val)
 {
 	std::cout << "Float constructor called" << std::endl;
