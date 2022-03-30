@@ -1,15 +1,32 @@
-SRCS		=	main.cpp						\
-				Contact.cpp						\
-				PhoneBook.cpp					\
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/30 20:09:06 by tarchimb          #+#    #+#              #
+#    Updated: 2022/03/30 20:10:32 by tarchimb         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS		=	PhoneBook.cpp				\
+				Contact.cpp					\
 				
-OBJS		=	${SRCS:.cpp=.o}
+OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
-INCLUDES	=	./Contact.hpp					\
-				./PhoneBook.hpp					\
+OBJS_DIR	=	objects
+SRCS_DIR	=	srcs
 
+INCLUDES	=	./includes/PhoneBook.hpp	\
+				./includes/Contact.hpp		\
+				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
+LIBINCLUDES	=	-Iincludes 
+
+LIB			=	libphonebook.a			
 
 EXEC		=	phonebook
 
@@ -19,18 +36,23 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-%.o: 		%.cpp
-			${CC} ${CFLAGS} -c $< -o $@
+${OBJS_DIR}/%.o: 	${SRCS_DIR}/%.cpp	${INCLUDES} Makefile
+			${MKDIR} $(@D)
+			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
 
-${EXEC}:	${OBJS} ${INCLUDES} Makefile
-			$(CC) ${CFLAGS} ${SRCS} -o ${EXEC}  
+$(LIB):		${OBJS} ${INCLUDES}
+			ar rcs ${LIB} ${OBJS}
+
+
+${EXEC}:	main.cpp ${LIB}
+			$(CC) ${CFLAGS} ${LIBINCLUDES} main.cpp ${EXECINCLUDES} ${LIB} -o ${EXEC}  
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} $(OBJS_DIR)
 
 fclean:		clean
-			${RM}${EXEC} ${EXEC}.dSYM
+			${RM} ${LIB} ${EXEC} ${LIB} ${EXEC}.dSYM
 
 re:			fclean all
 
-.PHONY: 	all clean fclean re
+.PHONY: 	all clean fclean re object

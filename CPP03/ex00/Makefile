@@ -6,28 +6,28 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 10:49:48 by tarchimb          #+#    #+#              #
-#    Updated: 2022/03/30 20:04:46 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/03/30 19:43:03 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	Zombie.cpp					\
-				zombieHorde.cpp				\
+SRCS		=	ClapTrap.cpp				\
 				
 OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
 OBJS_DIR	=	objects
 SRCS_DIR	=	srcs
 
-INCLUDES	=	./includes/Zombie.hpp		\
+INCLUDES	=	./includes/ClapTrap.hpp		\
+				
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
 LIBINCLUDES	=	-Iincludes 
 
-LIB			=	libzombie.a			
+LIB			=	libsclaptrap.a			
 
-EXEC		=	zombie
+EXEC		=	claptrap
 
 RM			=	rm -rf	
 

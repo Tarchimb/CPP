@@ -5,29 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 19:51:10 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:53:31 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/30 13:27:14 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/30 14:46:34 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Fixed.hpp>
+#include "ClapTrap.hpp"
 
-int main( void )
+int	main(void)
 {
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c( 42.42f );
-	Fixed const d(b);
-	
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	ClapTrap	a("William");
+	ClapTrap	b("Joe");
+	ClapTrap	c("Averell");
+	ClapTrap	d(a);
+
+	std::cout << "\n" << a << b << c << d << std::endl;
+	b.attack(a.getName());
+	b.beRepaired(10);
+	a.takeDamage(11);
+	std::cout << "\n" << a << b << c << d << std::endl;
+	a = b;
+	std::cout << "\n" << a << b << c << d << std::endl;
 	return (0);
 }

@@ -6,22 +6,27 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/03/30 12:57:14 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/03/30 20:06:22 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	main.cpp						\
-				newZombie.cpp					\
-				randomChump.cpp					\
-				Zombie.cpp						\
+SRCS		=	Zombie.cpp					\
+				newZombie.cpp				\
+				randomChump.cpp				\
 				
-OBJS		=	${SRCS:.cpp=.o}
+OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
-INCLUDES	=	Zombie.hpp						\
+OBJS_DIR	=	objects
+SRCS_DIR	=	srcs
 
+INCLUDES	=	./includes/Zombie.hpp		\
+				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
+LIBINCLUDES	=	-Iincludes 
+
+LIB			=	libzombie.a			
 
 EXEC		=	zombie
 
@@ -31,18 +36,23 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-%.o: 		%.cpp ${INCLUDES}
-			${CC} ${CFLAGS} -c $< -o $@
+${OBJS_DIR}/%.o: 	${SRCS_DIR}/%.cpp	${INCLUDES} Makefile
+			${MKDIR} $(@D)
+			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
 
-${EXEC}:	 ${OBJS} ${INCLUDES} Makefile
-			$(CC) ${CFLAGS} ${SRCS} -o ${EXEC}  
+$(LIB):		${OBJS} ${INCLUDES}
+			ar rcs ${LIB} ${OBJS}
+
+
+${EXEC}:	main.cpp ${LIB}
+			$(CC) ${CFLAGS} ${LIBINCLUDES} main.cpp ${EXECINCLUDES} ${LIB} -o ${EXEC}  
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} $(OBJS_DIR)
 
 fclean:		clean
-			${RM}${EXEC} ${EXEC}.dSYM
+			${RM} ${LIB} ${EXEC} ${LIB} ${EXEC}.dSYM
 
 re:			fclean all
 
-.PHONY: 	all clean fclean re
+.PHONY: 	all clean fclean re object

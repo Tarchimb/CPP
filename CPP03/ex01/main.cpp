@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 19:51:10 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:53:31 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/03/30 13:27:14 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/03/30 17:59:04 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Fixed.hpp>
+#include <ClapTrap.hpp>
+#include <ScavTrap.hpp>
 
-int main( void )
+int	main(void)
 {
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c( 42.42f );
-	Fixed const d(b);
-	
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	ClapTrap	a("William");
+	ScavTrap	b("Joe");
+	ClapTrap	c("Averell");
+
+	std::cout << "\n" << a << b << c << std::endl;
+	b.attack(a.getName());
+	a.takeDamage(b.getAttackDamage());
+	b.beRepaired(10);
+	b.guardGate();
+	std::cout << "\n" << a << b << c << std::endl;
+	a = c;
+	std::cout << "\n" << a << b << c << std::endl;
 	return (0);
 }

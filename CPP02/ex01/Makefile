@@ -6,20 +6,25 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 10:49:48 by tarchimb          #+#    #+#              #
-#    Updated: 2022/03/30 12:57:14 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/03/30 19:45:43 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	main.cpp				\
-				Fixed.cpp				\
+SRCS		=	Fixed.cpp					\
 				
-OBJS		=	${SRCS:.cpp=.o}
+OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
-INCLUDES	=	Fixed.hpp				\
+OBJS_DIR	=	objects
+SRCS_DIR	=	srcs
+
+INCLUDES	=	./includes/Fixed.hpp		\
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
+LIBINCLUDES	=	-Iincludes 
+
+LIB			=	libfixed.a			
 
 EXEC		=	fixed
 
@@ -29,18 +34,23 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-%.o: 		%.cpp ${INCLUDES}
-			${CC} ${CFLAGS} -c $< -o $@
+${OBJS_DIR}/%.o: 	${SRCS_DIR}/%.cpp	${INCLUDES} Makefile
+			${MKDIR} $(@D)
+			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
 
-${EXEC}:	${OBJS} ${INCLUDES}
-			$(CC) ${CFLAGS} ${SRCS} -o ${EXEC}  
+$(LIB):		${OBJS} ${INCLUDES}
+			ar rcs ${LIB} ${OBJS}
+
+
+${EXEC}:	main.cpp ${LIB}
+			$(CC) ${CFLAGS} ${LIBINCLUDES} main.cpp ${EXECINCLUDES} ${LIB} -o ${EXEC}  
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} $(OBJS_DIR)
 
 fclean:		clean
-			${RM}${EXEC} ${EXEC}.dSYM
+			${RM} ${LIB} ${EXEC} ${LIB} ${EXEC}.dSYM
 
 re:			fclean all
 
-.PHONY: 	all clean fclean re
+.PHONY: 	all clean fclean re object
