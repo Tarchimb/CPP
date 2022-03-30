@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 10:49:48 by tarchimb          #+#    #+#              #
-#    Updated: 2022/03/26 09:31:45 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/03/30 12:57:14 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-%.o: 		%.c ${INCLUDES}
+%.o: 		%.cpp ${INCLUDES}
 			${CC} ${CFLAGS} -c $< -o $@
 
 ${EXEC}:	${OBJS} ${INCLUDES}

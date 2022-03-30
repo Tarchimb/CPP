@@ -17,7 +17,7 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-%.o: 		%.c
+%.o: 		%.cpp
 			${CC} ${CFLAGS} -c $< -o $@
 
 ${EXEC}:	 ${OBJS} ${INCLUDES} Makefile

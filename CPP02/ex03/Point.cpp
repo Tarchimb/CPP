@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 09:27:18 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/29 14:22:57 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/30 11:02:34 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ Point::~Point()
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
 
-Point	&Point::operator=(Point const &rhs)
+Point	&Point::operator=(Point const &)
 {
-	if (this != &rhs)
-	{
-		*this = rhs;
-	}
+	// this->_x = rhs.getX();
+	// this->_y = rhs.getY();
 	return (*this);
 }
 
@@ -54,19 +52,16 @@ Point	&Point::operator=(Point const &rhs)
 /* ************************************************************************** */
 const Fixed	&Point::getX(void) const 
 {
-	Fixed const &tmp = _x;
-	return (tmp);
+	return (_x);
 }
 
 const Fixed	&Point::getY(void) const 
 {
-	Fixed const &tmp = _y;
-	return (tmp);
+	return (_y);
 }
 
 std::ostream	&operator<<(std::ostream &o, Point const &rhs)
 {
-	(void)rhs;
 	o << "(" << rhs.getX() << ", " << rhs.getY() << ")";
 	return (o);
 }
