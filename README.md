@@ -7,7 +7,7 @@
 ## General Informations
  This project is an introduction to C++ language from 42 school.
 
- He's split in 9 module, who all introduce to new notion's from the CPP language.
+ He's split in 9 module, who all introduce to new notions from the CPP language.
 
  ---
 ## Table of Contents
