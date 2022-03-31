@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:51:59 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:17:06 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ Fixed &Fixed::operator=(Fixed const & rhs)
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, Fixed const & rhs)
+std::ostream	&operator<<(std::ostream &o, Fixed const &rhs)
 {
 	o << rhs.toFloat();
 	return (o);

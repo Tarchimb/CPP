@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:46:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/21 16:09:36 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:10:47 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 class Harl
 {
+private:
 	typedef struct s_action
 	{
 		std::string	msg;
 		void		(Harl::*foo)(void) const;
 	}	t_action;
 	
-private:
 	void		debug(void) const;
 	void		info(void) const;
 	void		warning(void) const;
@@ -35,10 +35,10 @@ private:
 	void		problems(void) const;
 	t_action	action[4];
 public:
-	Harl();
-	~Harl();
-	void	complain(std::string level);
-	int		get_index(std::string argv);
+	Harl		();
+	~Harl		();
+	void		complain(std::string level);
+	int			get_index(std::string argv);
 
 };
 

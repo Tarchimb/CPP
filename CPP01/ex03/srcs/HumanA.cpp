@@ -6,11 +6,11 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:50:21 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/19 14:46:28 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:52:52 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include <HumanA.hpp>
 
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _Weapon(weapon)
 {

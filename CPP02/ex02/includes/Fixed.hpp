@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:17 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/29 09:21:57 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:20:57 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ public:
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-	static Fixed	&min(Fixed &nb1, Fixed &nb2);
-	static Fixed	&max(Fixed &nb1, Fixed &nb2);
+	static Fixed	min(Fixed &nb1, Fixed &nb2);
+	static Fixed	max(Fixed &nb1, Fixed &nb2);
 	static Fixed	min(const Fixed &nb1, const Fixed &nb2);
 	static Fixed	max(const Fixed &nb1, const Fixed &nb2);
 	int				getRawBits(void) const;

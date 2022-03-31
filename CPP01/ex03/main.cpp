@@ -6,12 +6,12 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:58:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/19 14:37:56 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:52:39 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include <HumanA.hpp>
+#include <HumanB.hpp>
 
 int main()
 {

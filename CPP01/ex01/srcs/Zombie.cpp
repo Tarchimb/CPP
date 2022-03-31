@@ -6,13 +6,13 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 10:51:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/22 09:28:42 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:41:56 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <Zombie.hpp>
 
-Zombie::Zombie(void)
+Zombie::Zombie(void) : _name (std::string())
 {
 	std::cout << GREEN << "[Zombie]:\t Constructor called" << END << std::endl;
 }

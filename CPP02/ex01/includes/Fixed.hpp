@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:47:30 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:48:29 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:17:02 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ public:
 	int				toInt(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &o, Fixed const & rhs);
+std::ostream		&operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

@@ -6,25 +6,27 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:19 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 16:12:04 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:25:01 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
-bool bsp(Point const a, Point const b, Point const c, Point const point);
+#include <Fixed.hpp>
+#include <Point.hpp>
 
-int main(int argc, char **argv)
+int main(void)
 {
-	(void)argc;
-	(void)argv;
-	Point	a(0, 50);
-	Point	b(40, 50);
-	Point	c(30, 40);
-	Point	point(30, 49.99999999f);
-	if (bsp(a, b, c, point) == false)
-		std::cout << "OUT" << std::endl;
-	else
-		std::cout << "IN" << std::endl;
+	Point	a(0, 0);
+	Point	b(2, 2);
+	Point	c(2, 0);
+	Point	point1(1, 0.5f);
+	Point	point2(1, 1);
+	Point	point3(10, 10);
+	
+	std::cout << "Point1 is:\t" << (bsp(a, b, c, point1) ? "IN" : "OUT")
+		<< std::endl;
+	std::cout << "Point2 is:\t" << (bsp(a, b, c, point2) ? "IN" : "OUT")
+		<< std::endl;
+	std::cout << "Point3 is:\t" << (bsp(a, b, c, point3) ? "IN" : "OUT")
+		<< std::endl;
 	return (0);
 }

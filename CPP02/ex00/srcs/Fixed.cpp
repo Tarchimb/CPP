@@ -6,11 +6,11 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/24 14:39:59 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:14:35 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include <Fixed.hpp>
 
 //Constructor
 Fixed::Fixed() : _val(0)

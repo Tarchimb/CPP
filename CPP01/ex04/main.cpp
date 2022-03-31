@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 14:51:24 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/19 16:11:32 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:59:15 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ int	main(int argc, char **argv)
 		std::cout << RED << "Need 3 parameters: [filename][to_replace][replace_by]"
 			<< END << GREEN << "\nYou can try tester_file \"Jammin'\" BOB"
 				<< "\nJust paste it!" << END << std::endl;
+		return (0);
+	}
+	if (argv[2][0] == '\0' || argv[3][0] == '\0')
+	{
+		std::cout << "Can't use empty replace arg's. Try again!" << std::endl;
 		return (0);
 	}
 	std::ifstream	input;

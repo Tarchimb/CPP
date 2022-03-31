@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:15:38 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/19 11:24:35 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:43:42 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int	main(void)
 	std::cout << "Value of string from string :\t" << string << std::endl;
 	std::cout << "Value of string from PTR :\t" << *stringPTR << std::endl;
 	std::cout << "Value of string from REF :\t" << stringREF << std::endl;
-
 	return (0);
 }

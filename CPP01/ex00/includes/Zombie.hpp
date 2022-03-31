@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 12:57:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/22 09:21:01 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:32:41 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 class Zombie
 {
 private:
-	std::string	_name;
+	std::string		_name;
+	Zombie			();
 public:
-	Zombie();
-	Zombie(std::string name);
-	~Zombie();
-	void 	announce( void ) const;
+	Zombie			(std::string name);
+	~Zombie			();
+	void	announce(void) const;
 };
 
-Zombie* newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie* newZombie	(std::string name);
+void	randomChump	(std::string name);
 #endif

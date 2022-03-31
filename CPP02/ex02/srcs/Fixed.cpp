@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:14:15 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/28 16:59:28 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/03/31 17:21:09 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,14 +188,14 @@ int		Fixed::toInt(void) const
 	return (this->_val >> _bit);
 }
 
-Fixed	&Fixed::min(Fixed &nb1, Fixed &nb2)
+Fixed	Fixed::min(Fixed &nb1, Fixed &nb2)
 {
 	if (nb1.getRawBits() > nb2.getRawBits())
 		return (nb2);
 	return (nb1);
 }
 
-Fixed	&Fixed::max(Fixed &nb1, Fixed &nb2)
+Fixed	Fixed::max(Fixed &nb1, Fixed &nb2)
 {
 	if (nb1.getRawBits() < nb2.getRawBits())
 		return (nb2);
