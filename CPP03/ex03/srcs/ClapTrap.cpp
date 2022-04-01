@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:23:08 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 11:28:36 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/01 10:32:14 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10) , _attackDamage(0)
+ClapTrap::ClapTrap() : _name (std::string()), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << "Default constructor called" << END << std::endl;
 }
@@ -40,8 +40,8 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << RED << "Destructor called, " << _name << " is dead!"
-		<< END << std::endl;
+	std::cout << RED << "Destructor called from ClapTrap, "
+		<< _name << " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */
@@ -58,11 +58,11 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const & rhs)
 	return (*this);	
 }
 
-std::ostream	&operator<<(std::ostream & o, ClapTrap const & i)
+std::ostream	&operator<<(std::ostream &o, ClapTrap const &i)
 {
-	o << "Name:\t" << i.getName() << "\tHit points:\t" << i.getHitPoints()
-		<< "\tEnergy points:\t" << i.getEnergyPoints() << "\tAttack damage:\t"
-			<< i.getAttackDamage() << std::endl;
+	o << "Class:\tClapTrap\tName:\t" << i.getName() << "\tHit points:\t" 
+		<< i.getHitPoints() << "\tEnergy points:\t" << i.getEnergyPoints()
+		<< "\tAttack damage:\t" << i.getAttackDamage() << std::endl;
 	return o;
 }
 
