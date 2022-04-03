@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:19:04 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 13:59:27 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/01 22:55:40 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 # include <ClapTrap.hpp>
 
-class FragTrap : public  virtual ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	public:
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
+		FragTrap	();
 		FragTrap	(std::string name);
 		FragTrap	(FragTrap const & src);
 		~FragTrap	();
@@ -39,7 +40,6 @@ class FragTrap : public  virtual ClapTrap
 		void		highFiveGuys(void) const;
 
 	private:
-		FragTrap	();
 };
 
 std::ostream		&operator<<(std::ostream &o, FragTrap const &i);

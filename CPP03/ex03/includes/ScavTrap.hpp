@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:50:34 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 13:59:40 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/01 22:13:08 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ScavTrap : public virtual ClapTrap
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
+		ScavTrap	();
 		ScavTrap	(std::string name);
 		ScavTrap	(ScavTrap const & src);
 		~ScavTrap	();
@@ -36,7 +37,6 @@ class ScavTrap : public virtual ClapTrap
 		void		guardGate();
 
 	private:
-		ScavTrap	();
 };
 
 std::ostream		&operator<<(std::ostream &o, ScavTrap const &i);

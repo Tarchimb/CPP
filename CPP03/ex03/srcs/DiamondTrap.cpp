@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:23:54 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 13:25:27 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/01 23:32:14 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("_clap_name")
 {
 	std::cout << GREEN << "Default constructor called from DiamondTrap" 
 		<< END << std::endl;
-	this->_attackDamage = 20;
-	this->_energyPoints = 50;
-	this->_hitPoints = 100;
+	this->_attackDamage = FragTrap::_attackDamage;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_hitPoints = FragTrap::_hitPoints;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
 {
-	this->_attackDamage = 20;
-	this->_energyPoints = 50;
-	this->_hitPoints = 100;
+	this->_attackDamage = FragTrap::_attackDamage;
+	this->_energyPoints = ScavTrap::_energyPoints;
+	this->_hitPoints = FragTrap::_hitPoints;
 	this->_name = name;	
 	std::cout << GREEN << "Constructor called from DiamondTrap " << _name
 		<< " is born!" << END << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &src)
+DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap("_clap_name")
 {
 	this->_attackDamage = src._attackDamage;
 	this->_energyPoints = src._energyPoints;
@@ -77,7 +77,8 @@ std::ostream	&operator<<(std::ostream &o, DiamondTrap const &i)
 /* ************************************************************************** */
 void	DiamondTrap::whoAmI(void)
 {
-	
+	std::cout << "Name from DiamondTrap: " << _name << "\tName from ClapTrap: "
+		<< this->getName() << std::endl; 
 }
 
 /* ************************************************************************** */

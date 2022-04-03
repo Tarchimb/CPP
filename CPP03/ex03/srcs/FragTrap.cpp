@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:18:47 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 10:28:09 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/01 23:03:38 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(std::string name)
 {
-	this->_attackDamage = 20;
-	this->_energyPoints = 50;
+	this->_attackDamage = 30;
+	this->_energyPoints = 100;
 	this->_hitPoints = 100;
 	this->_name = name;	
 	std::cout << GREEN << "Constructor called from FragTrap " << _name
