@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:23:08 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 10:29:28 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/04 11:45:28 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 /* ************************************************************************** */
 ScavTrap::ScavTrap()
 {
-	std::cout << GREEN << "Default constructor called from ScavTrap" 
-		<< END << std::endl;
+	if (_name.empty())
+		_name = "defautl";
+	std::cout << GREEN << "Default constructor called from ScavTrap, " << _name 
+		<< " is born!" << END << std::endl;
 	this->_attackDamage = 20;
 	this->_energyPoints = 50;
 	this->_hitPoints = 100;
