@@ -15,7 +15,7 @@
 
 #include <Animal.hpp>
 
-class Dog : protected Animal
+class Dog : public Animal
 {
 
 	public:
@@ -24,7 +24,7 @@ class Dog : protected Animal
 /* ************************************************************************** */
 		Dog		();
 		Dog		(Dog const & src);
-		~Dog	();
+		virtual ~Dog	();
 		
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
@@ -34,7 +34,7 @@ class Dog : protected Animal
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		void		makeSound(void) const;
+		virtual void		makeSound(void) const;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */

@@ -6,13 +6,15 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 10:49:48 by tarchimb          #+#    #+#              #
-#    Updated: 2022/04/04 14:38:35 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/04/05 11:03:50 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	Animal.cpp					\
 				Cat.cpp						\
 				Dog.cpp						\
+				WrongAnimal.cpp				\
+				WrongCat.cpp				\
 				
 OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
@@ -22,6 +24,8 @@ SRCS_DIR	=	srcs
 INCLUDES	=	./includes/Cat.hpp			\
 				./includes/Dog.hpp			\
 				./includes/Animal.hpp		\
+				./includes/WrongAnimal.hpp	\
+				./includes/WrongCat.hpp		\
 				
 				
 CC			= 	c++

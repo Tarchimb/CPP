@@ -1,35 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 13:23:08 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 11:28:36 by tarchimb         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <Cat.hpp>
-
+#include <WrongCat.hpp>
 
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-Cat::Cat()
+WrongCat::WrongCat()
 {
-	this->_type = "Cat";
+	this->_type = "WrongCat";
 	std::cout << GREEN << "Default constructor called, a "<< _type 
 		<< " is born!" << END << std::endl;}
 
-Cat::Cat(const Cat &src)
+WrongCat::WrongCat(const WrongCat &src)
 {
 	this->_type = src.getType();
 	std::cout << GREEN << "Copy constructor called, a copy of " << _type
 		<< " is born!"  << END << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
 	std::cout << RED << "Destructor called, " << _type << " is dead!"
 		<< END << std::endl;
@@ -38,13 +25,13 @@ Cat::~Cat()
 /* ************************************************************************** */
 /* 						 	Overload  operators		  				  		  */
 /* ************************************************************************** */
-Cat	&Cat::operator=(Cat const &rhs)
+WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream & o, Cat const & i)
+std::ostream	&operator<<(std::ostream & o, WrongCat const & i)
 {
 	o << "Type:\t" << i.getType() << std::endl;
 	return o;
@@ -53,7 +40,7 @@ std::ostream	&operator<<(std::ostream & o, Cat const & i)
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
-std::string	Cat::getType(void) const
+std::string	WrongCat::getType(void) const
 {
 	return (this->_type);
 }
@@ -61,8 +48,8 @@ std::string	Cat::getType(void) const
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	Cat::makeSound(void) const
+void	WrongCat::makeSound(void) const
 {
-	std::cout << "Miaou" << std::endl;
+	std::cout << "WrongMiaou" << std::endl;
 }
 /* ************************************************************************** */
