@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Dog.hpp>
+#include <Cat.hpp>
 
 
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-Dog::Dog()
+Cat::Cat()
 {
-	this->_type = "Dog";
+	this->_brain = new Brain();
+	this->_type = "Cat";
 	std::cout << GREEN << "Default constructor called, a "<< _type 
 		<< " is born!" << END << std::endl;}
 
-Dog::Dog(const Dog &src)
+Cat::Cat(const Cat &src)
 {
 	this->_type = src.getType();
+	this->_brain = src.getBrain();
 	std::cout << GREEN << "Copy constructor called, a copy of " << _type
 		<< " is born!"  << END << std::endl;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << RED << "Destructor called from dog, " << _type << " is dead!"
+	std::cout << RED << "Destructor called from cat, " << _type << " is dead!"
 		<< END << std::endl;
 }
 
 /* ************************************************************************** */
 /* 						 	Overload  operators		  				  		  */
 /* ************************************************************************** */
-Dog	&Dog::operator=(Dog const &rhs)
+Cat	&Cat::operator=(Cat const &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream & o, Dog const & i)
+std::ostream	&operator<<(std::ostream & o, Cat const & i)
 {
 	o << "Type:\t" << i.getType() << std::endl;
 	return o;
@@ -53,16 +55,21 @@ std::ostream	&operator<<(std::ostream & o, Dog const & i)
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
-std::string	Dog::getType(void) const
+std::string	Cat::getType(void) const
 {
 	return (this->_type);
+}
+
+std::string	*Cat::getBrain(void) const
+{
+	return (this->_brain);
 }
 
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	Dog::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "Ouaf" << std::endl;
+	std::cout << "Miaou" << std::endl;
 }
 /* ************************************************************************** */

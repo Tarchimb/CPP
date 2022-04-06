@@ -6,7 +6,7 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/19 10:49:48 by tarchimb          #+#    #+#              #
-#    Updated: 2022/04/06 11:50:42 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/04/06 14:42:14 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS		=	Animal.cpp					\
 				Dog.cpp						\
 				WrongAnimal.cpp				\
 				WrongCat.cpp				\
+				Brain.cpp					\
 				
 OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
@@ -26,6 +27,7 @@ INCLUDES	=	./includes/Cat.hpp			\
 				./includes/Animal.hpp		\
 				./includes/WrongAnimal.hpp	\
 				./includes/WrongCat.hpp		\
+				./includes/Brain.hpp		\
 				
 				
 CC			= 	c++

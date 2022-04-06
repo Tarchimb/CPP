@@ -1,49 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 14:08:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/06 11:34:43 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/04/06 14:57:35 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/04/06 14:57:36 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include <Animal.hpp>
+# include <iostream>
+# include <string>
+#define RED "\e[1;31m"
+#define GREEN "\e[1;32m"
+#define END "\033[0m"
 
-class Cat : public Animal
+class WrongAnimal
 {
 
 	public:
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-		Cat		();
-		Cat		(Cat const & src);
-		~Cat	();
+		WrongAnimal		();
+		WrongAnimal		(WrongAnimal const & src);
+		~WrongAnimal	();
 		
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
-		Cat	&operator=(Cat const &rhs);
+		WrongAnimal	&operator=( WrongAnimal const & rhs );
 		
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		virtual void		makeSound(void) const;
+		void		makeSound(void) const;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
 		std::string	getType(void) const;
 		
 	protected:
+		std::string	_type;
 	private:
 };
 
-std::ostream		&operator<<( std::ostream &o, Cat const &i);
+std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i );
 
-#endif /* ******************************************************** CAT_HPP */
+#endif /* ***************************************************** WRONGANIMAL_H */

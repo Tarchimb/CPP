@@ -14,6 +14,7 @@
 # define DOG_HPP
 
 #include <Animal.hpp>
+#include <Brain.hpp>
 
 class Dog : public Animal
 {
@@ -42,6 +43,7 @@ class Dog : public Animal
 		
 	protected:
 	private:
+		Brain	*_brain;
 };
 
 std::ostream		&operator<<( std::ostream & o, Dog const & i );

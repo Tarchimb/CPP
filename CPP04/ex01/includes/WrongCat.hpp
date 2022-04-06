@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/06 14:57:32 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/04/06 14:57:33 by tarchimb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 
-# include <WrongAnimal.hpp>
+#include <WrongAnimal.hpp>
+#include <Brain.hpp>
 
 class WrongCat : public WrongAnimal
 {
@@ -30,7 +43,7 @@ class WrongCat : public WrongAnimal
 		
 	protected:
 	private:
-
+		Brain	*_brain;
 };
 
 std::ostream &			operator<<( std::ostream & o, WrongCat const & i );
