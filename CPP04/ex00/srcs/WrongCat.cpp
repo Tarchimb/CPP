@@ -18,8 +18,8 @@ WrongCat::WrongCat(const WrongCat &src)
 
 WrongCat::~WrongCat()
 {
-	std::cout << RED << "Destructor called, " << _type << " is dead!"
-		<< END << std::endl;
+	std::cout << RED << "Destructor called from wrongcat, " << _type 
+		<< " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */

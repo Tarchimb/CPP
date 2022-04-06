@@ -31,7 +31,7 @@ Dog::Dog(const Dog &src)
 
 Dog::~Dog()
 {
-	std::cout << RED << "Destructor called, " << _type << " is dead!"
+	std::cout << RED << "Destructor called from dog, " << _type << " is dead!"
 		<< END << std::endl;
 }
 

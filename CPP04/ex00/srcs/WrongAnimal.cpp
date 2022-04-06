@@ -14,8 +14,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src.getType())
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << RED << "Destructor called, " << _type << " is dead!"
-		<< END << std::endl;
+	std::cout << RED << "Destructor called from wronganimal, " << _type 
+		<< " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */

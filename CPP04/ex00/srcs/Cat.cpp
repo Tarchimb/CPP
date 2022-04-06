@@ -31,7 +31,7 @@ Cat::Cat(const Cat &src)
 
 Cat::~Cat()
 {
-	std::cout << RED << "Destructor called, " << _type << " is dead!"
+	std::cout << RED << "Destructor called from cat, " << _type << " is dead!"
 		<< END << std::endl;
 }
 

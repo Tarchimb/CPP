@@ -29,8 +29,8 @@ Animal::Animal(const Animal &src) : _type(src.getType())
 
 Animal::~Animal()
 {
-	std::cout << RED << "Destructor called, " << _type << " is dead!"
-		<< END << std::endl;
+	std::cout << RED << "Destructor called from animal, " << _type 
+		<< " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */
