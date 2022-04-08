@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:23:08 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:29:51 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:51:51 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /* ************************************************************************** */
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10) , _attackDamage(0)
 {
+	_name = "Default";
 	std::cout << GREEN << "Default constructor called" << END << std::endl;
 }
 
@@ -40,7 +41,8 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << RED << "Destructor called from ClapTrap" << END << std::endl;
+	std::cout << RED << "Destructor called from ClapTrap, " << _name 
+		<< " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */

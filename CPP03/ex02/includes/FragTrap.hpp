@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:19:04 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 10:19:05 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:59:35 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class FragTrap : public ClapTrap
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void		highFiveGuys(void) const;
+		void		attack(const std::string &target);
 
 	private:
 		FragTrap	();

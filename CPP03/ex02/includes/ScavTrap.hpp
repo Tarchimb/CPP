@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:50:34 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 10:17:44 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:59:14 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class ScavTrap : public ClapTrap
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
+		ScavTrap	();
 		ScavTrap	(std::string name);
 		ScavTrap	(ScavTrap const & src);
 		~ScavTrap	();
@@ -34,9 +35,9 @@ class ScavTrap : public ClapTrap
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void		guardGate();
+		void		attack(const std::string &target);
 
 	private:
-		ScavTrap	();
 };
 
 std::ostream		&operator<<(std::ostream &o, ScavTrap const &i);

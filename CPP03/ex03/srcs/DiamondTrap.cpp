@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 13:23:54 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 23:32:14 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 10:11:17 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("_clap_name")
 	this->_attackDamage = FragTrap::_attackDamage;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_hitPoints = FragTrap::_hitPoints;
+	attack() = ScavTrap::attack();
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
@@ -30,7 +31,6 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _nam
 	this->_attackDamage = FragTrap::_attackDamage;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_hitPoints = FragTrap::_hitPoints;
-	this->_name = name;	
 	std::cout << GREEN << "Constructor called from DiamondTrap " << _name
 		<< " is born!" << END << std::endl;
 }
@@ -77,7 +77,7 @@ std::ostream	&operator<<(std::ostream &o, DiamondTrap const &i)
 /* ************************************************************************** */
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "Name from DiamondTrap: " << _name << "\tName from ClapTrap: "
+	std::cout << "Name from DiamondTrap: " << _name << "\nName from ClapTrap: "
 		<< this->getName() << std::endl; 
 }
 

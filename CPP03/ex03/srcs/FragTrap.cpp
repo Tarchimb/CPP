@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:18:47 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/01 23:03:38 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 10:08:14 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 /* ************************************************************************** */
 FragTrap::FragTrap()
 {
+	this->_name = "Default";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	std::cout << GREEN << "Default constructor called from FragTrap" 
 		<< END << std::endl;
-	this->_attackDamage = 30;
-	this->_energyPoints = 100;
-	this->_hitPoints = 100;
 }
 
 FragTrap::FragTrap(std::string name)
 {
-	this->_attackDamage = 30;
-	this->_energyPoints = 100;
 	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	this->_name = name;	
 	std::cout << GREEN << "Constructor called from FragTrap " << _name
 		<< " is born!" << END << std::endl;
@@ -78,6 +79,18 @@ void	FragTrap::highFiveGuys(void) const
 {
 	std::cout << "From " << _name << ": High Five!"
 		<< std::endl;	
+}
+
+void	FragTrap::attack(const std::string &target)
+{
+    if (_hitPoints > 0 && _energyPoints > 0)
+    {
+        std::cout << "FragTrap " << _name << " attacks " << target << ", causing "
+                    << _attackDamage << " points of damage!" << std::endl;
+    }
+    else
+         std::cout << "ScavTrap " << _name << " is dead!" << std::endl;
+    _energyPoints -= 1;
 }
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:27:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 14:46:34 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:41:56 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	ClapTrap	a("William");
 	ClapTrap	b("Joe");
-	ClapTrap	c("Averell");
+	ClapTrap	c;
 	ClapTrap	d(a);
 
 	std::cout << "\n" << a << b << c << d << std::endl;

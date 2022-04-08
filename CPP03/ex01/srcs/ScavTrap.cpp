@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:23:08 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 19:29:15 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:49:12 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ ScavTrap::ScavTrap()
 {
 	std::cout << GREEN << "Default constructor called from ScavTrap" 
 		<< END << std::endl;
+	this->_name = "Default";
 	this->_attackDamage = 20;
 	this->_energyPoints = 50;
 	this->_hitPoints = 100;
@@ -80,5 +81,18 @@ void	ScavTrap::guardGate()
 	std::cout << "ScavTrap " << _name << " is now in mode GateKeeping! "
 		<< std::endl;	
 }
+
+void		ScavTrap::attack(const std::string &target)
+{
+	if (_hitPoints > 0 && _energyPoints > 0)
+	{
+		std::cout << "ScavTrap " << _name << " attacks " << target << ", causing "
+			<< _attackDamage << " points of damage!" << std::endl;	
+	}
+	else
+		std::cout << "ScavTrap " << _name << " is dead!" << std::endl;
+	_energyPoints -= 1;
+}
+
 
 /* ************************************************************************** */

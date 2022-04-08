@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:50:34 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/03/30 17:59:39 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:44:20 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class ScavTrap : public ClapTrap
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void		guardGate();
+		void		attack(const std::string &target);
 
 	private:
 };
