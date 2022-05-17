@@ -1,50 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 17:23:27 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/17 17:23:28 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/05/17 17:21:29 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/05/17 17:21:30 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <WrongCat.hpp>
+#include <WrongAnimal.hpp>
 
-/* ************************************************************************** */
-/* 						  Constructors && Destructors		  				  */
-/* ************************************************************************** */
-WrongCat::WrongCat()
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	this->_brain = new Brain();
-	this->_type = "WrongCat";
 	std::cout << GREEN << "Default constructor called, a "<< _type 
-		<< " is born!" << END << std::endl;}
+		<< " is born!" << END << std::endl;
+}
 
-WrongCat::WrongCat(const WrongCat &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src.getType())
 {
-	this->_type = src.getType();
 	std::cout << GREEN << "Copy constructor called, a copy of " << _type
 		<< " is born!"  << END << std::endl;
 }
 
-WrongCat::~WrongCat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << RED << "Destructor called from wrongcat, " << _type 
+	std::cout << RED << "Destructor called from wrongAnimal, " << _type 
 		<< " is dead!" << END << std::endl;
 }
 
 /* ************************************************************************** */
 /* 						 	Overload  operators		  				  		  */
 /* ************************************************************************** */
-WrongCat	&WrongCat::operator=(WrongCat const &rhs)
+WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream & o, WrongCat const & i)
+std::ostream	&operator<<(std::ostream & o, WrongAnimal const & i)
 {
 	o << "Type:\t" << i.getType() << std::endl;
 	return o;
@@ -53,7 +48,7 @@ std::ostream	&operator<<(std::ostream & o, WrongCat const & i)
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
-std::string	WrongCat::getType(void) const
+std::string	WrongAnimal::getType(void) const
 {
 	return (this->_type);
 }
@@ -61,8 +56,8 @@ std::string	WrongCat::getType(void) const
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	WrongCat::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "WrongMiaou" << std::endl;
+	std::cout << "Unknown sound from WrongAnimal" << std::endl;
 }
 /* ************************************************************************** */

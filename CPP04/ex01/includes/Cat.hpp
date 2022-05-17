@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:08:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/06 14:52:50 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:55:02 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ class Cat : public Animal
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		virtual void		makeSound(void) const;
+		void				printIdeas(void) const;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
 		std::string	getType(void) const;
-		std::string	*getBrain(void) const;
 		
 	protected:
 	private:

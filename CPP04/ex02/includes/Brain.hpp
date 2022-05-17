@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 14:08:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/04 14:15:08 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/04/06 14:57:26 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/05/17 17:17:09 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include <Animal.hpp>
-#include <Brain.hpp>
+#include <AAnimal.hpp>
 
-class Dog : public Animal
+class Brain
 {
 
 	public:
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-		Dog		();
-		Dog		(Dog const & src);
-		~Dog	();
+		Brain	();
+		~Brain	();
 		
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
-		Dog	&operator=( Dog const & rhs );
 		
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		virtual void	makeSound(void) const;
-		void			printIdeas(void) const;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
-		std::string	getType(void) const;
+		std::string	getIdea(int i) const;	
+		void		print_ideas(void) const;
+		void		setIdea(Brain *rhs);
+
 		
 	protected:
 	private:
-		Brain	*_brain;
+		Brain	(Brain const & src);
+		Brain	&operator=( Brain const & rhs );
+		std::string	_ideas[100];
 };
 
-std::ostream		&operator<<( std::ostream & o, Dog const & i );
+std::ostream		&operator<<(std::ostream &o, Brain const &i);
 
-#endif /* ******************************************************** DOG_H */
+#endif /* *********************************************************** BRAIN_H */

@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:57:26 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/06 14:57:27 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/17 14:51:46 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ class Brain
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
-		std::string	*getIdea(void) const;	
+		std::string	getIdea(int i) const;	
+		void		print_ideas(void) const;
+		void		setIdea(Brain *rhs);
 
 		
 	protected:
 	private:
-		Brain	&operator=( Brain const & rhs );
-		std::string	_idea[100];
 		Brain	(Brain const & src);
+		Brain	&operator=( Brain const & rhs );
+		std::string	_ideas[100];
 };
 
 std::ostream		&operator<<(std::ostream &o, Brain const &i);

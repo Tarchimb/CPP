@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:08:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/04 14:15:08 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:16:16 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include <Animal.hpp>
+#include <AAnimal.hpp>
 #include <Brain.hpp>
 
-class Dog : public Animal
+class Cat : public AAnimal
 {
 
 	public:
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-		Dog		();
-		Dog		(Dog const & src);
-		~Dog	();
+		Cat		();
+		Cat		(Cat const & src);
+		~Cat	();
 		
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
-		Dog	&operator=( Dog const & rhs );
+		Cat	&operator=(Cat const &rhs);
 		
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		virtual void	makeSound(void) const;
-		void			printIdeas(void) const;
+		virtual void		makeSound(void) const;
+		void				printIdeas(void) const;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
@@ -47,6 +47,6 @@ class Dog : public Animal
 		Brain	*_brain;
 };
 
-std::ostream		&operator<<( std::ostream & o, Dog const & i );
+std::ostream		&operator<<( std::ostream &o, Cat const &i);
 
-#endif /* ******************************************************** DOG_H */
+#endif /* ******************************************************** CAT_HPP */

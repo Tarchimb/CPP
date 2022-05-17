@@ -1,52 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:08:33 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/04/04 14:15:08 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:22:18 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include <Animal.hpp>
-#include <Brain.hpp>
+# include <iostream>
+# include <string>
+#define RED "\e[1;31m"
+#define GREEN "\e[1;32m"
+#define END "\033[0m"
 
-class Dog : public Animal
+class AAnimal
 {
 
 	public:
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-		Dog		();
-		Dog		(Dog const & src);
-		~Dog	();
+		AAnimal	();
+		AAnimal	(AAnimal const & src);
+		virtual ~AAnimal	();
 		
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
-		Dog	&operator=( Dog const & rhs );
+		AAnimal	&operator=( AAnimal const & rhs );
 		
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		virtual void	makeSound(void) const;
-		void			printIdeas(void) const;
+		virtual void		makeSound(void) const = 0;
 /* ************************************************************************** */
 /* 						  		Getters && Setters			  				  */
 /* ************************************************************************** */
 		std::string	getType(void) const;
 		
 	protected:
+		std::string	_type;
 	private:
-		Brain	*_brain;
 };
 
-std::ostream		&operator<<( std::ostream & o, Dog const & i );
+std::ostream		&operator<<(std::ostream &o, AAnimal const &i);
 
-#endif /* ******************************************************** DOG_H */
+#endif /* ******************************************************** ANIMAL_H */
