@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 17:17:39 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:10:09 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class AForm
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
 		AForm		();
-		AForm		(std::string name, int req_grade_sign, int req_grade_ex);
+		AForm		(std::string name, int req_grade_sign, int req_grade_ex,
+			std::string target);
 		AForm		(const AForm &src);
 		~AForm		();
 		
@@ -37,6 +38,7 @@ class AForm
 		std::string	getName() const;
 		int			getGradeToEx() const;
 		int			getGradeToSign() const;
+		std::string	getTarget() const;
 
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
@@ -46,24 +48,51 @@ class AForm
 /* ************************************************************************** */
 /*	 							Under class							  		  */
 /* ************************************************************************** */
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : virtual public std::exception
 		{
 			public :
+				explicit GradeTooHighException(std::string name, std::string action)
+					{this->_name = name; this->_action = action;}
 				const char	*what() const throw();
+				virtual ~GradeTooHighException() throw() {};
+			private :
+				std::string _name;
+				std::string _action;
 		};
 		
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : virtual public std::exception
 		{
 			public :
+				explicit GradeTooLowException(std::string name, std::string action)
+					{this->_name = name; this->_action = action;}
 				const char	*what() const throw();
+				virtual ~GradeTooLowException() throw() {};
+			private :
+				std::string _name;
+				std::string _action;
+		};
+		class IsNotSignedException : public std::exception
+		{
+			public :
+				explicit IsNotSignedException(std::string name, std::string target)
+					{this->_name = name; this->_target = target;}
+				const char	*what() const throw();
+				virtual ~IsNotSignedException() throw() {};
+			private :
+				std::string _name;
+				std::string _target;
 		};
 		
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-		virtual void	beSigned(const Bureaucrat *Bureaucrat);
+		void	beSigned(const Bureaucrat *Bureaucrat);
+		virtual	void	execute(Bureaucrat  const & executor) = 0;
+		void	beExecute(Bureaucrat &executor);
+		
 	private :
 		std::string	_name;
+		std::string	_target;
 		bool		_issigned;
 		int			_req_grade_sign;
 		int			_req_grade_ex;

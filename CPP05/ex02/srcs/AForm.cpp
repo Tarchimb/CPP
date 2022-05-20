@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 17:12:55 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:11:35 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,18 @@ AForm::AForm() : _issigned(false)
 	
 }
 
-AForm::AForm(std::string name, int req_grade_sign, int req_grade_ex) : 
-	 _name(name), _issigned(false)
+AForm::AForm(std::string name, int req_grade_sign, int req_grade_ex, std::string target)
+	:	_name(name), _target(target), _issigned(false)
 {
-	try
+
+	if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
+		throw GradeTooHighException(this->_name, "instanciate");
+	else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
+		throw GradeTooLowException(this->_name, "instanciate");
+	else
 	{
-		if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
-			throw GradeTooHighException();
-		else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
-			throw GradeTooLowException();
-		else
-		{
-			_req_grade_ex = req_grade_ex;
-			_req_grade_sign = req_grade_sign;
-		}
-	}
-	catch(const GradeTooHighException &e)
-	{
-		std::cout << Red << this->_name << e.what()
-			<< Reset << std::endl;
-	}
-	catch(const GradeTooLowException &e)
-	{
-		std::cout << Red << this->_name << e.what()
-			<< Reset << std::endl;
+		_req_grade_ex = req_grade_ex;
+		_req_grade_sign = req_grade_sign;
 	}
 }
 
@@ -65,6 +53,11 @@ std::string	AForm::getName() const
 	return (this->_name);
 }
 
+std::string	AForm::getTarget() const
+{
+	return (this->_target);
+}
+
 int			AForm::getGradeToEx() const
 {
 	return (this->_req_grade_ex);
@@ -76,17 +69,27 @@ int			AForm::getGradeToSign() const
 }
 
 /* ************************************************************************** */
-/*	 							Under class							  		  */
+/*	 							Exceptions							  		  */
 /* ************************************************************************** */
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade isn't high enough");
+	std::string	data(this->_name + ": Grade isn't high enough to "
+		+ this->_action + "it!");
+	return (data.c_str());
 }
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return ("Maximum grade reached");
+	std::string	data(this->_name + ": Maximum grade reached");
+	return (data.c_str());
+}
+
+const char	*AForm::IsNotSignedException::what() const throw()
+{
+	std::string	data(this->_name + ": this form who targetted " + this->_target
+		+ "isn't signed yet");
+	return (data.c_str());
 }
 
 /* ************************************************************************** */
@@ -95,22 +98,24 @@ const char	*AForm::GradeTooHighException::what() const throw()
 
 void	AForm::beSigned(const Bureaucrat *bureaucrat)
 {
-	try
+	if (this->_req_grade_sign >= bureaucrat->getGrade())
 	{
-		if (this->_req_grade_sign >= bureaucrat->getGrade())
-		{
-			this->_issigned = true;
-			std::cout << Green << bureaucrat->getName() << " has signed form "
-				<< this->getName() << Reset << std::endl;
-		}
-		else
-			AForm::GradeTooLowException();		
+		this->_issigned = true;
+		std::cout << Green << bureaucrat->getName() << " has signed form "
+			<< this->getName() << Reset << std::endl;
 	}
-	catch(AForm::GradeTooLowException &e)
-	{
-		std::cout << Red << bureaucrat->getName() << " :" << e.what() << Reset	
-			<< std::endl;
-	}
+	else
+		throw (AForm::GradeTooLowException(this->_name, "sign"));
+}
+
+void	AForm::beExecute(Bureaucrat &executor)
+{
+	if (this->_issigned == false)
+		throw(IsNotSignedException(this->_name, this->_target));
+	else if (executor.getGrade() <= this->getGradeToEx())
+		throw(GradeTooLowException(executor.getName(), "execute"));
+	else
+		execute(executor);
 }
 
 /* ************************************************************************** */

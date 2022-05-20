@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 14:56:30 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/20 12:56:52 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,24 @@ class Form
 /* ************************************************************************** */
 /*	 							Under class							  		  */
 /* ************************************************************************** */
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : virtual public std::exception
 		{
 			public :
+				explicit GradeTooHighException(std::string name){this->_name = name;}
 				const char	*what() const throw();
+				virtual ~GradeTooHighException() throw() {};
+			private :
+				std::string _name;
 		};
 		
-		class GradeTooLowException : public std::exception
+		class GradeTooLowException : virtual public std::exception
 		{
 			public :
+				explicit GradeTooLowException(std::string name){this->_name = name;}
 				const char	*what() const throw();
+				virtual ~GradeTooLowException() throw() {};
+			private :
+				std::string _name;
 		};
 		
 /* ************************************************************************** */

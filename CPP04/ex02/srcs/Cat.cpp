@@ -26,8 +26,7 @@ Cat::Cat()
 Cat::Cat(const Cat &src)
 {
 	this->_brain = new Brain();
-	this->_type = src.getType();
-	this->_brain->setIdea(src._brain);
+	*this = src;
 	std::cout << GREEN << "Copy constructor called, a copy of " << _type
 		<< " is born!"  << END << std::endl;
 }

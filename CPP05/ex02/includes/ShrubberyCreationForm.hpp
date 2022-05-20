@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:01:12 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 17:22:32 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:18:22 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,13 @@ class ShrubberyCreationForm : public AForm
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-
+		void	execute(Bureaucrat  const & executor);
 /* ************************************************************************** */
 /*	 							Try / Catch exceptions			  			  */
 /* ************************************************************************** */
 
-	private:
-	
-}
+} ;
 
 	std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i);
+	
 #endif
