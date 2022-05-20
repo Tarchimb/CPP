@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 13:27:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/17 17:09:23 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/18 15:48:01 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int main()
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+
 	delete j;
 	delete i;
 	print_tab(100);
