@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:01:12 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 10:57:21 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:13:31 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class PresidentialPardonForm : public AForm
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */	
-		PresidentialPardonForm();
 		PresidentialPardonForm(PresidentialPardonForm &src);
 		PresidentialPardonForm(std::string target);
 		~PresidentialPardonForm();
@@ -29,22 +28,14 @@ class PresidentialPardonForm : public AForm
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &rhs);
-/* ************************************************************************** */
-/*	 							Under class							  		  */
-/* ************************************************************************** */
-		
-/* ************************************************************************** */
-/* 						  		Getters && Setters			  				  */
-/* ************************************************************************** */
 
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void	execute(Bureaucrat  const & executor) const;
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */
 
+	private :
+		PresidentialPardonForm();
 } ;
 
 	std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &i);

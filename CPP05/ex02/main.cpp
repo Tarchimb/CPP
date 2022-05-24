@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:06:22 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 11:18:59 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:14:03 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,15 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "test.hpp"
 
 int	main(void)
 {
-	ShrubberyCreationForm	test("test");
-	PresidentialPardonForm	test1("Jean");
-	RobotomyRequestForm		test2("Robots");
-	Bureaucrat				b1("Joe", 1);
-	Bureaucrat				b2("Paul", 150);
+	ShrubberyCreationForm	f1("Garden");
+	ShrubberyCreationForm	f2(f1);
 	
-
-	std::cout << test << test1 << test2;
-	test.beSigned(&b1);
-	try
-	{
-		test.beExecute(b1);
-	}
-	catch(const AForm::GradeTooHighException &e)
-	{
-		std::cerr  << Red << e.what() << '\n';
-	}
-	catch(const AForm::GradeTooLowException &e)
-	{
-		std::cerr << Red << e.what() << '\n';
-	}
+	std::cout << f1 << f2;
+	f2 = f1;
+	std::cout << f1 << f2;
+	// launch_tests();
 }

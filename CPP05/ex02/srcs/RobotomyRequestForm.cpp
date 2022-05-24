@@ -33,8 +33,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 /* ************************************************************************** */
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
-	(void)rhs;
-	return *this;
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
@@ -60,6 +59,9 @@ std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
 /* ************************************************************************** */
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
+	std::cout << Yellow << "[Form executed] : " << Green << "Bzzz Bzzz Bzzz, " << this->getTarget()
+		<< " has been success robotimized 50% of the time!" << Reset
+		<< std::endl;
 	std::cout << Green << executor.getName() << " executed " << this->getName()
 		<< std::endl;
 }

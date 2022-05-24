@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:56:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 11:34:19 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:17:50 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 /* ************************************************************************** */
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
-	(void)rhs;
+	
 	return *this;
 }
 
@@ -63,13 +63,26 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ifstream	original("tree.txt");
 	std::ofstream	tree;
 	std::string		line;
-	std::cout << Green << executor.getName() << " executed " << this->getName()
-		<< std::endl;	
 
+	if (original.is_open() == false)
+	{
+		std::cout << Red << "Can't open tree.txt" << Reset << std::endl;
+		return ;
+	}
 	tree.open(this->getTarget() + "_shrubbery");
+	if (tree.is_open() == false)
+	{
+		std::cout << Red << "Can't open " << this->getTarget() + "_shrubbery"
+			<< Reset << std::endl;
+		return ;
+	}
 	while(std::getline(original, line))
 		tree << line << "\n";
 	tree.close();
+	std::cout << Yellow << "[Form executed] : "  << this->getTarget() + "_shrubbery"
+		<< " has been created!" << Reset << std::endl;
+	std::cout << Green << executor.getName() << " executed " << this->getName()
+		<< std::endl;	
 }
 
 

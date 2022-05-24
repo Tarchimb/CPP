@@ -33,7 +33,6 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 /* ************************************************************************** */
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
 {
-	(void)rhs;
 	return *this;
 }
 
@@ -52,10 +51,10 @@ std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &i)
 /* ************************************************************************** */
 void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << Green << executor.getName() << " executed " << this->getName()
-		<< std::endl;
 	std::cout << Yellow << "[Form executed] : " << Green << this->getTarget()
 		<< " as been forgiven by Zaphod Beeblebrox." << std::endl;
+	std::cout << Green << executor.getName() << " executed " << this->getName()
+		<< std::endl;
 }
 
 

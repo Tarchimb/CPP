@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:01:12 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 10:57:09 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:13:06 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class RobotomyRequestForm : public AForm
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */	
-		RobotomyRequestForm();
 		RobotomyRequestForm(RobotomyRequestForm &src);
 		RobotomyRequestForm(std::string target);
 		~RobotomyRequestForm();
@@ -29,22 +28,14 @@ class RobotomyRequestForm : public AForm
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &rhs);
-/* ************************************************************************** */
-/*	 							Under class							  		  */
-/* ************************************************************************** */
-		
-/* ************************************************************************** */
-/* 						  		Getters && Setters			  				  */
-/* ************************************************************************** */
 
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void	execute(Bureaucrat  const & executor) const;
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */
 
+	private :
+		RobotomyRequestForm();
 } ;
 
 	std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i);
