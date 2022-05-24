@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 16:10:09 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:01:53 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ class AForm
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
 		AForm		&operator=(const AForm &rhs);
+/* ************************************************************************** */
+/* 							Member's class functions			  			  */
+/* ************************************************************************** */
+		void	beSigned(const Bureaucrat *Bureaucrat);
+		virtual	void	execute(Bureaucrat  const & executor) const = 0;
+		void	beExecute(Bureaucrat &executor) const;
 		
 /* ************************************************************************** */
 /*	 							Under class							  		  */
@@ -83,12 +89,6 @@ class AForm
 				std::string _target;
 		};
 		
-/* ************************************************************************** */
-/* 							Member's class functions			  			  */
-/* ************************************************************************** */
-		void	beSigned(const Bureaucrat *Bureaucrat);
-		virtual	void	execute(Bureaucrat  const & executor) = 0;
-		void	beExecute(Bureaucrat &executor);
 		
 	private :
 		std::string	_name;

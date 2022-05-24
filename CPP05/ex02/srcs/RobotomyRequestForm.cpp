@@ -58,9 +58,10 @@ std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	RobotomyRequestForm::execute(Bureaucrat const &executor)
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	std::cout << Green << executor.getName() << " executed " << this->getName()
+		<< std::endl;
 }
 
 

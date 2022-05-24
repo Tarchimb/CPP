@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:56:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 16:18:50 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:34:19 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,18 @@ std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i)
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	std::ifstream	original("tree.txt");
+	std::ofstream	tree;
+	std::string		line;
+	std::cout << Green << executor.getName() << " executed " << this->getName()
+		<< std::endl;	
+
+	tree.open(this->getTarget() + "_shrubbery");
+	while(std::getline(original, line))
+		tree << line << "\n";
+	tree.close();
 }
 
 

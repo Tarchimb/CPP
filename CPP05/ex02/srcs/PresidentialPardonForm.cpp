@@ -50,10 +50,11 @@ std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &i)
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	PresidentialPardonForm::execute(Bureaucrat const &executor)
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-	std::cout << Green_u << this->getTarget()
+	std::cout << Green << executor.getName() << " executed " << this->getName()
+		<< std::endl;
+	std::cout << Yellow << "[Form executed] : " << Green << this->getTarget()
 		<< " as been forgiven by Zaphod Beeblebrox." << std::endl;
 }
 

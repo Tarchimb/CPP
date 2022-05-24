@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:07:24 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 16:21:50 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:14:48 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include <fstream>
 # include "alias.h"
 # include "AForm.hpp"
 class AForm;

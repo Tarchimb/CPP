@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 16:11:35 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:00:41 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int			AForm::getGradeToSign() const
 const char	*AForm::GradeTooLowException::what() const throw()
 {
 	std::string	data(this->_name + ": Grade isn't high enough to "
-		+ this->_action + "it!");
+		+ this->_action + " it!");
 	return (data.c_str());
 }
 
@@ -88,7 +88,7 @@ const char	*AForm::GradeTooHighException::what() const throw()
 const char	*AForm::IsNotSignedException::what() const throw()
 {
 	std::string	data(this->_name + ": this form who targetted " + this->_target
-		+ "isn't signed yet");
+		+ " isn't signed yet");
 	return (data.c_str());
 }
 
@@ -108,11 +108,11 @@ void	AForm::beSigned(const Bureaucrat *bureaucrat)
 		throw (AForm::GradeTooLowException(this->_name, "sign"));
 }
 
-void	AForm::beExecute(Bureaucrat &executor)
+void	AForm::beExecute(Bureaucrat &executor) const
 {
 	if (this->_issigned == false)
 		throw(IsNotSignedException(this->_name, this->_target));
-	else if (executor.getGrade() <= this->getGradeToEx())
+	else if (executor.getGrade() >= this->getGradeToEx())
 		throw(GradeTooLowException(executor.getName(), "execute"));
 	else
 		execute(executor);

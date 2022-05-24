@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:07:25 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 16:23:24 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:02:18 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,8 @@ void	Bureaucrat::signForm(AForm &form) const
 
 void	Bureaucrat::executeForm(AForm const &form)
 {
-	
+	(void)form;
+	form.beExecute(*this);
 }
 
 
