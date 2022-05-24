@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 11:00:41 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:14:15 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,11 @@ const char	*AForm::IsNotSignedException::what() const throw()
 	std::string	data(this->_name + ": this form who targetted " + this->_target
 		+ " isn't signed yet");
 	return (data.c_str());
+}
+
+void	AForm::setTarget(std::string target)
+{
+	this->_target = target;
 }
 
 /* ************************************************************************** */

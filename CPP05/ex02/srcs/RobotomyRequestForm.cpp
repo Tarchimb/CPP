@@ -21,9 +21,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: AForm("RobotomyRequestForm", 72, 45, target){}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &src)
-{
-	*this = src;
-}
+	: AForm("RobotomyRequestForm", 72, 45, src.getTarget()) {}
 
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
@@ -33,6 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 /* ************************************************************************** */
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
+	this->setTarget(rhs.getTarget());
 	return (*this);
 }
 
@@ -47,14 +46,6 @@ std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
 }
 
 /* ************************************************************************** */
-/*	 							Under class							  		  */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/* 						  		Getters && Setters			  				  */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
@@ -65,8 +56,3 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	std::cout << Green << executor.getName() << " executed " << this->getName()
 		<< std::endl;
 }
-
-
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */

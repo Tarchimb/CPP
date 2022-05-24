@@ -21,9 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: AForm("PresidentialPardonForm", 25, 5, target){}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &src)
-{
-	*this = src;
-}
+	: AForm("PresidentialPardonForm", 25, 5, src.getTarget()) {}
 
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
@@ -33,7 +31,8 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 /* ************************************************************************** */
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
 {
-	return *this;
+	this->setTarget(rhs.getTarget());
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &o, const PresidentialPardonForm &i)
@@ -56,8 +55,3 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	std::cout << Green << executor.getName() << " executed " << this->getName()
 		<< std::endl;
 }
-
-
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */

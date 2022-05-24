@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 11:01:53 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:13:43 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class AForm
 		int			getGradeToEx() const;
 		int			getGradeToSign() const;
 		std::string	getTarget() const;
+		void		setTarget(std::string target);
 
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */

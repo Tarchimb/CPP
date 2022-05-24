@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:56:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 13:17:50 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:16:18 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: AForm("ShrubberyCreationForm", 145, 137, target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &src)
+	: AForm("ShrubberyCreationForm", 145, 137, src.getTarget())
 {
 	*this = src;
 }
@@ -33,8 +34,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 /* ************************************************************************** */
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
-	
-	return *this;
+	this->setTarget(rhs.getTarget());
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i)
@@ -46,14 +47,6 @@ std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i)
 		<< i.getGradeToEx() << "\n" << std::endl;
 	return (o);
 }
-
-/* ************************************************************************** */
-/*	 							Under class							  		  */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/* 						  		Getters && Setters			  				  */
-/* ************************************************************************** */
 
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
@@ -84,8 +77,3 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::cout << Green << executor.getName() << " executed " << this->getName()
 		<< std::endl;	
 }
-
-
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */
