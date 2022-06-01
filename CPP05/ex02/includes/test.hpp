@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   test.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 17:37:48 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/17 17:38:52 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/05/20 13:27:33 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/05/24 13:08:20 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef TEST_HPP
+# define TEST_HPP
 
-# include <iostream>
-# include <string>
-# include <AMateria.hpp>
+void	printTitle(std::string title);
+void	launch_tests(void);
+void	tryExecute(Bureaucrat &b1, Bureaucrat &b2, AForm &f1, AForm &f2, AForm &f3);
+void	trySign(Bureaucrat &b1, Bureaucrat &b2, AForm &f1, AForm &f2, AForm &f3);
+void	tryExecuteBeforeSign(Bureaucrat &b1, AForm &f1);
 
-class Cure : public AMateria
-{
-
-	public:
-
-		Cure();
-		Cure( Cure const & src );
-		~Cure();
-
-		Cure &		operator=( Cure const & rhs );
-
-	private:
-
-};
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
-
-#endif /* ************************************************************ CURE_H */
+#endif

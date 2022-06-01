@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   test.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 17:37:26 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/17 17:42:05 by tarchimb         ###   ########.fr       */
+/*   Created: 2022/05/20 13:27:33 by tarchimb          #+#    #+#             */
+/*   Updated: 2022/05/20 13:28:44 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef TEST_HPP
+# define TEST_HPP
 
-# include <iostream>
-# include <string>
-# include "AMateria.hpp"
+void	printTitle(std::string title);
+void	trysign(Bureaucrat &b, Form &f1, Form &f2, Form &f3);
+void	tryOperatorForBureaucrat(Bureaucrat &b1, Bureaucrat &b2, Bureaucrat &b3);
+void	tryOperatorForm(Form &f1, Form &f2, Form &f3);
+void	tryWrongInit(void);
+void	tryChangeGrade(void);
 
-class Ice : public AMateria
-{
-
-	public:
-
-		Ice();
-		Ice( Ice const & src );
-		~Ice();
-
-		Ice &		operator=( Ice const & rhs );
-
-	private:
-
-};
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
-
-#endif /* ************************************************************* ICE_H */
+#endif

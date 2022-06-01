@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 15:06:10 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/20 14:27:51 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,15 @@ Form::Form() : _issigned(false)
 Form::Form(std::string name, int req_grade_sign, int req_grade_ex) : 
 	 _name(name), _issigned(false)
 {
-	try
+
+	if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
+		throw GradeTooHighException(this->_name);
+	else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
+		throw GradeTooLowException(this->_name);
+	else
 	{
-		if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
-			throw GradeTooHighException();
-		else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
-			throw GradeTooLowException();
-		else
-		{
-			_req_grade_ex = req_grade_ex;
-			_req_grade_sign = req_grade_sign;
-		}
-	}
-	catch(const GradeTooHighException &e)
-	{
-		std::cout << Red << this->_name << e.what()
-			<< Reset << std::endl;
-	}
-	catch(const GradeTooLowException &e)
-	{
-		std::cout << Red << this->_name << e.what()
-			<< Reset << std::endl;
+		_req_grade_ex = req_grade_ex;
+		_req_grade_sign = req_grade_sign;
 	}
 }
 
@@ -81,12 +69,14 @@ int			Form::getGradeToSign() const
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade isn't high enough");
+	std::string	data(this->_name + ": Grade isn't high enough");
+	return (data.c_str());
 }
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Maximum grade reached");
+	std::string	data(this->_name + ": Maximum grade reached");
+	return (data.c_str());
 }
 
 /* ************************************************************************** */
@@ -95,22 +85,14 @@ const char	*Form::GradeTooHighException::what() const throw()
 
 void	Form::beSigned(const Bureaucrat *bureaucrat)
 {
-	try
+	if (this->_req_grade_sign >= bureaucrat->getGrade())
 	{
-		if (this->_req_grade_sign >= bureaucrat->getGrade())
-		{
-			this->_issigned = true;
-			std::cout << Green << bureaucrat->getName() << " has signed form "
-				<< this->getName() << Reset << std::endl;
-		}
-		else
-			Form::GradeTooLowException();		
+		this->_issigned = true;
+		std::cout << Green << bureaucrat->getName() << " has signed form "
+			<< this->getName() << Reset << std::endl;
 	}
-	catch(Form::GradeTooLowException &e)
-	{
-		std::cout << Red << bureaucrat->getName() << " :" << e.what() << Reset	
-			<< std::endl;
-	}
+	else
+		throw (Form::GradeTooLowException(this->_name));		
 }
 
 /* ************************************************************************** */

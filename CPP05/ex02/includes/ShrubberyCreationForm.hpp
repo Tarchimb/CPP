@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:01:12 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 17:22:32 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:12:44 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class ShrubberyCreationForm : public AForm
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */	
-		ShrubberyCreationForm();
 		ShrubberyCreationForm(ShrubberyCreationForm &src);
 		ShrubberyCreationForm(std::string target);
 		~ShrubberyCreationForm();
@@ -29,25 +28,16 @@ class ShrubberyCreationForm : public AForm
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
 		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &rhs);
-/* ************************************************************************** */
-/*	 							Under class							  		  */
-/* ************************************************************************** */
 		
-/* ************************************************************************** */
-/* 						  		Getters && Setters			  				  */
-/* ************************************************************************** */
-
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-
-/* ************************************************************************** */
-/*	 							Try / Catch exceptions			  			  */
-/* ************************************************************************** */
-
-	private:
-	
-}
+		void	execute(Bureaucrat  const & executor) const;
+		
+	private :
+		ShrubberyCreationForm();
+} ;
 
 	std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i);
+	
 #endif

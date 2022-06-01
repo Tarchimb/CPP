@@ -6,15 +6,16 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/05/19 17:19:57 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/05/20 14:25:28 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	Bureaucrat.cpp							\
 				AForm.cpp								\
-				ShruberryCreationForm.cpp				\
+				ShrubberyCreationForm.cpp				\
 				RobotomyRequestForm.cpp					\
 				PresidentialPardonForm.cpp				\
+				test.cpp								\
 				
 OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
@@ -24,9 +25,10 @@ SRCS_DIR	=	srcs
 INCLUDES	=	./includes/Bureaucrat.hpp				\
 				./includes/alias.h						\
 				./includes/AForm.hpp					\
-				./includes/ShruberryCreationForm.hpp	\
+				./includes/ShrubberyCreationForm.hpp	\
 				./includes/RobotomyRequestForm.hpp		\
 				./includes/PresidentialPardonForm.hpp	\
+				./includes/test.hpp						\
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

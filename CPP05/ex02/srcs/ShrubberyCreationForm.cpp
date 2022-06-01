@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:56:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 15:34:45 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:16:18 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-RobotomyRequestForm::RobotomyRequestForm(){}
+ShrubberyCreationForm::ShrubberyCreationForm(){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("RobotomyRequestForm", 72, 45, target){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+	: AForm("ShrubberyCreationForm", 145, 137, target){}
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &src)
-	: AForm("RobotomyRequestForm", 72, 45, src.getTarget()) {}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &src)
+	: AForm("ShrubberyCreationForm", 145, 137, src.getTarget())
+{
+	*this = src;
+}
 
 
-RobotomyRequestForm::~RobotomyRequestForm(){}
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 /* ************************************************************************** */
 /* 						 Overload arithmetic operators		  				  */
 /* ************************************************************************** */
-RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
 	this->setTarget(rhs.getTarget());
 	return (*this);
 }
 
-std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
+std::ostream	&operator<<(std::ostream &o, const ShrubberyCreationForm &i)
 {
 	o << Yellow_u << i.getName() << Reset << ":\n\nTarget: " << i.getTarget()
 		<< "\nIs it signed: " << (i.getIsSigned()? "Yes\n" : "No\n")
@@ -48,11 +51,29 @@ std::ostream	&operator<<(std::ostream &o, const RobotomyRequestForm &i)
 /* ************************************************************************** */
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << Yellow << "[Form executed] : " << Green << "Bzzz Bzzz Bzzz, " << this->getTarget()
-		<< " has been success robotimized 50% of the time!" << Reset
-		<< std::endl;
+	std::ifstream	original("tree.txt");
+	std::ofstream	tree;
+	std::string		line;
+
+	if (original.is_open() == false)
+	{
+		std::cout << Red << "Can't open tree.txt" << Reset << std::endl;
+		return ;
+	}
+	tree.open(this->getTarget() + "_shrubbery");
+	if (tree.is_open() == false)
+	{
+		std::cout << Red << "Can't open " << this->getTarget() + "_shrubbery"
+			<< Reset << std::endl;
+		return ;
+	}
+	while(std::getline(original, line))
+		tree << line << "\n";
+	tree.close();
+	std::cout << Yellow << "[Form executed] : "  << this->getTarget() + "_shrubbery"
+		<< " has been created!" << Reset << std::endl;
 	std::cout << Green << executor.getName() << " executed " << this->getName()
-		<< std::endl;
+		<< std::endl;	
 }

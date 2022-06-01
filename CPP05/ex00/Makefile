@@ -6,11 +6,12 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/05/19 11:45:10 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/05/20 14:08:37 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	Bureaucrat.cpp				\
+				test.cpp
 				
 OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
 
@@ -19,6 +20,7 @@ SRCS_DIR	=	srcs
 
 INCLUDES	=	./includes/Bureaucrat.hpp	\
 				./includes/alias.h			\
+				./includes/test.hpp			\
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98

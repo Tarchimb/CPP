@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:07:24 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/19 17:11:47 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/24 11:14:48 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include <fstream>
 # include "alias.h"
 # include "AForm.hpp"
 class AForm;
@@ -37,15 +38,23 @@ class Bureaucrat
 /* ************************************************************************** */
 /*	 							Under class							  		  */
 /* ************************************************************************** */
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : virtual public std::exception
 		{
 			public :
-				const char	*what(void) const throw();
+				explicit GradeTooHighException(std::string name){this->_name = name;};
+				virtual const char	*what() const throw();
+				virtual ~GradeTooHighException() throw () {}
+			private :
+				std::string	_name;
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public :
-				const char	*what(void) const throw();
+				explicit GradeTooLowException(std::string name){this->_name = name;};
+				virtual const char	*what() const throw();
+				virtual ~GradeTooLowException() throw () {}
+			private :
+				std::string	_name;
 		};
 		
 /* ************************************************************************** */
@@ -60,6 +69,7 @@ class Bureaucrat
 /* 							Member's class functions			  			  */
 /* ************************************************************************** */
 		void			signForm(AForm &form) const;
+		void			executeForm(AForm const &form);
 		
 	private:
 		Bureaucrat();
