@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 13:24:03 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 13:26:23 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:40:44 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@ void	tryOperatorForBureaucrat(Bureaucrat &b1, Bureaucrat &b2, Bureaucrat &b3)
 	std::cout << "After: " << std::endl;
 	b1 = b2 = b3;
 	std::cout << b1 << b2 << b3;	
-}
-
-void	tryOperatorForm(Form &f1, Form &f2, Form &f3)
-{
-	printTitle("Operator '=' for Form");
-	std::cout << "Before: " << std::endl;
-	std::cout << f1 << f2 << f3;
-	std::cout << "After: " << std::endl;
-	f1 = f2 = f3;
-	std::cout << f1 << f2 << f3;
 }
 
 void	tryWrongInit(void)

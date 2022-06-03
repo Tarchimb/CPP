@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 10:58:18 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/31 18:15:32 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 12:56:33 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ void	Convert::toDouble(double src, char *argv)
 	else if (IS_DOUBLE == true)
 		std::cout << src << std::endl;
 	else if (IS_CHAR == true)
-		std::cout << static_cast<double>(argv[0]) << std::endl;
+		std::cout << static_cast<double>(argv[0]) << ".0" << std::endl;
+	else if (IS_FLOAT == true || IS_INT == true)
+		std::cout << static_cast<double>(src) << std::endl;
 	else
 		std::cout << "impossible" << std::endl;
 }
@@ -77,17 +79,16 @@ void	Convert::toFloat(double src, char *argv)
 	float	f_ptr = static_cast<float>(src);
 	
 	std::cout << "float: ";
+	if (IS_CHAR == true)
+	{
+		std::cout << static_cast<float>(argv[0]) << ".0f" << std::endl;
+		return;
+	}
 	if (IS_FUN == false && IS_WRONG == false)
 		std::cout << std::setprecision(this->is_passed) << std::fixed 
 			<< f_ptr << "f" << std::endl;
 	else if (IS_FUN == true && IS_FLOAT == true)
-	{
-		std::cout << argv;
-		if (src > 0)
-			std::cout << "+" << std::endl;
-		else
-			std::cout << "-" << std::endl;
-	}
+		std::cout << argv << std::endl;
 	else if (IS_FUN == true && IS_FLOAT == false)
 		std::cout << argv << "f" << std::endl;
 	else

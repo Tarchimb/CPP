@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 12:56:52 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:39:44 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Form
 /* ************************************************************************** */
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
-		Form		();
 		Form		(std::string name, int req_grade_sign, int req_grade_ex);
 		Form		(const Form &src);
 		~Form		();
@@ -75,10 +74,11 @@ class Form
 /* ************************************************************************** */
 		void	beSigned(const Bureaucrat *Bureaucrat);
 	private :
-		std::string	_name;
-		bool		_issigned;
-		int			_req_grade_sign;
-		int			_req_grade_ex;
+		Form		();
+		const std::string	_name;
+		const int			_req_grade_ex;
+		const int			_req_grade_sign;
+		bool				_issigned;
 };
 
 	std::ostream	&operator<<(std::ostream &o, const Form &i);

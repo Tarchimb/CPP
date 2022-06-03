@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:34:07 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 16:13:43 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:51:38 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ class AForm
 		
 		
 	private :
-		std::string	_name;
-		std::string	_target;
-		bool		_issigned;
-		int			_req_grade_sign;
-		int			_req_grade_ex;
+		const std::string	_name;
+		const int			_req_grade_ex;
+		const int			_req_grade_sign;
+		std::string			_target;
+		bool				_issigned;
 };
 
 	std::ostream	&operator<<(std::ostream &o, const AForm &i);

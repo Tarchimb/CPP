@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:06:22 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 13:29:41 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:42:36 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ int	main(void)
 	Form		f1("Law 1", 100, 100);
 	Form		f2("Law 2", 1, 1);
 	Form		f3("Law 3", 150, 150);
+	Form		f4(f3);
 
 	printTitle("Bureaucrats:");
 	std::cout << b1 << b2 << b3;
 	printTitle("Form:");
 	std::cout << f1 << f2 << f3;
-	printTitle("Try sign");
+	printTitle("Form by copy:");
+	std::cout << f4 << std::endl;
 	trysign(b1, f1, f2, f3);
 	trysign(b2, f1, f2, f3);
 	trysign(b3, f1, f2, f3);
 	tryOperatorForBureaucrat(b1, b2, b3);
-	tryOperatorForm(f1, f2, f3);
 	tryWrongInit();
 	tryChangeGrade();
 }

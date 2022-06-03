@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:07:25 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 13:03:35 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:33:08 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat() : _grade(0)
 {	
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src )
+Bureaucrat::Bureaucrat( const Bureaucrat & src )  : _name(src.getName())
 {
 	*this = src;
 }
@@ -110,7 +110,6 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 	if ( this != &rhs )
 	{
 		this->_grade = rhs._grade;
-		this->_name = rhs._name;
 	}
 	return (*this);
 }

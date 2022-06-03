@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:07:24 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 12:55:34 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:19:45 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ class Bureaucrat
 		
 	private:
 		Bureaucrat();
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 };
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i );

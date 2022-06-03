@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 16:14:15 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:56:00 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
 
-AForm::AForm() : _issigned(false)
+AForm::AForm() : _name("Default"), _req_grade_ex(0), _req_grade_sign(0)
+	, _target("Default"), _issigned(false)
 {
 	
 }
 
 AForm::AForm(std::string name, int req_grade_sign, int req_grade_ex, std::string target)
-	:	_name(name), _target(target), _issigned(false)
+: _name(name), _req_grade_ex(req_grade_ex), _req_grade_sign(req_grade_sign), _target(target), _issigned(false) 
 {
-
 	if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
 		throw GradeTooHighException(this->_name, "instanciate");
 	else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
 		throw GradeTooLowException(this->_name, "instanciate");
-	else
-	{
-		_req_grade_ex = req_grade_ex;
-		_req_grade_sign = req_grade_sign;
-	}
+}
+
+AForm::AForm(const AForm &src) : _name(src.getName()), _req_grade_ex(src.getGradeToEx()),
+	 _req_grade_sign(src.getGradeToSign()), _target(src.getTarget()), _issigned(src.getIsSigned())
+{
+	
 }
 
 AForm::~AForm()
@@ -130,9 +131,7 @@ void	AForm::beExecute(Bureaucrat &executor) const
 AForm		&AForm::operator=(const AForm &rhs)
 {
 	this->_issigned = rhs.getIsSigned();
-	this->_name = rhs.getName();
-	this->_req_grade_ex = rhs.getGradeToEx();
-	this->_req_grade_sign = rhs.getGradeToSign();
+	this->_target = rhs.getTarget();
 	return (*this);
 }
 

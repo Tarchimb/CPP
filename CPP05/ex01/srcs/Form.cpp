@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:43:14 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/20 14:27:51 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:39:19 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@
 /* 						  Constructors && Destructors		  				  */
 /* ************************************************************************** */
 
-Form::Form() : _issigned(false)
+Form::Form() : _name("Default:"), _req_grade_ex(0), _req_grade_sign(0), _issigned(false)
 {
 	
 }
 
 Form::Form(std::string name, int req_grade_sign, int req_grade_ex) : 
-	 _name(name), _issigned(false)
+	 _name(name), _req_grade_ex(req_grade_ex), _req_grade_sign(req_grade_sign), _issigned(false)
 {
 
 	if (req_grade_sign > MAX_GRADE || req_grade_ex > MAX_GRADE)
 		throw GradeTooHighException(this->_name);
 	else if (req_grade_ex < MIN_GRADE || req_grade_sign < MIN_GRADE)
 		throw GradeTooLowException(this->_name);
-	else
-	{
-		_req_grade_ex = req_grade_ex;
-		_req_grade_sign = req_grade_sign;
-	}
+}
+
+Form::Form(const Form &src) : _name(src.getName())
+, _req_grade_ex(src.getGradeToEx()), _req_grade_sign(src.getGradeToSign()), _issigned(src.getIsSigned())
+{
+	
 }
 
 Form::~Form()
@@ -102,9 +103,6 @@ void	Form::beSigned(const Bureaucrat *bureaucrat)
 Form		&Form::operator=(const Form &rhs)
 {
 	this->_issigned = rhs.getIsSigned();
-	this->_name = rhs.getName();
-	this->_req_grade_ex = rhs.getGradeToEx();
-	this->_req_grade_sign = rhs.getGradeToSign();
 	return (*this);
 }
 

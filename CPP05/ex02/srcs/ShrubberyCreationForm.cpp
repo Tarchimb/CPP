@@ -6,7 +6,7 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 09:56:41 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/05/24 16:16:18 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/05/25 10:58:41 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	while(std::getline(original, line))
 		tree << line << "\n";
 	tree.close();
-	std::cout << Yellow << "[Form executed] : "  << this->getTarget() + "_shrubbery"
+	std::cout << Yellow << "[Form executed] : "  << Green << this->getTarget() + "_shrubbery"
 		<< " has been created!" << Reset << std::endl;
 	std::cout << Green << executor.getName() << " executed " << this->getName()
 		<< std::endl;	
