@@ -6,13 +6,11 @@
 /*   By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 16:01:30 by tarchimb          #+#    #+#             */
-/*   Updated: 2022/06/03 16:14:41 by tarchimb         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:26:17 by tarchimb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
-
-
+#include "./includes/whatever.hpp"
 
 int	main(void)
 {

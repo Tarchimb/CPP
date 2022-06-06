@@ -6,11 +6,12 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/06/03 16:16:45 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/06/06 11:22:39 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 INCLUDES	=	./includes/iter.hpp	\
+				./includes/alias.h	\
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
@@ -23,8 +24,8 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-${EXEC}:	main.cpp
-			$(CC) ${CFLAGS} main.cpp -o ${EXEC}  
+${EXEC}:	main.cpp ${INCLUDES} Makefile
+			$(CC) ${CFLAGS} main.cpp -o ${EXEC} 
 
 clean:
 			${RM} ${OBJS} $(OBJS_DIR)
