@@ -6,11 +6,11 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/06/07 10:21:48 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/06/07 11:50:01 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-INCLUDES	=	./includes/Array.hpp		\
+INCLUDES	=	./includes/easyfind.hpp		\
 				./includes/alias.h			\
 				
 CC			= 	c++

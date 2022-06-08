@@ -6,17 +6,28 @@
 #    By: tarchimb <tarchimb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 12:45:04 by tarchimb          #+#    #+#              #
-#    Updated: 2022/06/07 10:21:48 by tarchimb         ###   ########.fr        #
+#    Updated: 2022/06/07 16:24:57 by tarchimb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-INCLUDES	=	./includes/Array.hpp		\
+SRCS		=	Span.cpp					\
+				
+OBJS		=	$(addprefix ${OBJS_DIR}/, ${SRCS:.cpp=.o})
+
+OBJS_DIR	=	objects
+SRCS_DIR	=	srcs
+
+INCLUDES	=	./includes/Span.hpp			\
 				./includes/alias.h			\
 				
 CC			= 	c++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
-EXEC		=	array
+LIBINCLUDES	=	-Iincludes 
+
+LIB			=	libspan.a			
+
+EXEC		=	span
 
 RM			=	rm -rf	
 
@@ -24,8 +35,16 @@ MKDIR		=	mkdir -p
 
 all:		${EXEC}
 
-${EXEC}:	main.cpp ${INCLUDES} Makefile
-			$(CC) ${CFLAGS} main.cpp -o ${EXEC}  
+${OBJS_DIR}/%.o: 	${SRCS_DIR}/%.cpp	${INCLUDES} Makefile
+			${MKDIR} $(@D)
+			${CC} ${CFLAGS} ${LIBINCLUDES} -c $< -o $@
+
+$(LIB):		${OBJS} ${INCLUDES}
+			ar rcs ${LIB} ${OBJS}
+
+
+${EXEC}:	main.cpp ${LIB}
+			$(CC) ${CFLAGS} ${LIBINCLUDES} main.cpp ${EXECINCLUDES} ${LIB} -o ${EXEC}  
 
 clean:
 			${RM} ${OBJS} $(OBJS_DIR)
